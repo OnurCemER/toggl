@@ -3,7 +3,12 @@ class TimeRecordsController < ApplicationController
 
   # GET /time_records or /time_records.json
   def index
-    @time_records = TimeRecord.all
+    if params[:started_time] && params[:finished_time]
+      started_time = params[:started_time]
+      finished_time = params[:finished_time]
+      @time_records = TimeRecord.where(started_time: started_time, finished_time: finished_time)
+      pust time_records
+    end
   end
 
   # GET /time_records/1 or /time_records/1.json
@@ -56,6 +61,7 @@ class TimeRecordsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_time_record
@@ -65,5 +71,14 @@ class TimeRecordsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def time_record_params
       params.require(:time_record).permit(:comment, :time_type, :started_time, :finished_time)
+    end
+
+    def filterByTimeInterval
+      if params[:started_time] && params[:finished_time]
+        started_time = params[:started_time]
+        finished_time = params[:finished_time]
+        @filteredRecords = TimeRecord.where(started_time: started_time, finished_time: finished_time)
+        pust filteredRecords
+      end
     end
 end
