@@ -3,12 +3,7 @@ class TimeRecordsController < ApplicationController
 
   # GET /time_records or /time_records.json
   def index
-    if params[:started_time] && params[:finished_time]
-      started_time = params[:started_time]
-      finished_time = params[:finished_time]
-      @time_records = TimeRecord.where(started_time: started_time, finished_time: finished_time)
-      pust time_records
-    end
+    @time_records = TimeRecord.all
   end
 
   # GET /time_records/1 or /time_records/1.json
@@ -78,7 +73,7 @@ class TimeRecordsController < ApplicationController
         started_time = params[:started_time]
         finished_time = params[:finished_time]
         @filteredRecords = TimeRecord.where(started_time: started_time, finished_time: finished_time)
-        pust filteredRecords
+        puts filteredRecords
       end
     end
 end
