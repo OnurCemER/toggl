@@ -73,7 +73,6 @@ class TimeRecordsController < ApplicationController
         started_time = params[:started_time]
         finished_time = params[:finished_time]
         @filteredRecords = TimeRecord.where(started_time: started_time, finished_time: finished_time)
-        puts filteredRecords
       end
     end
 end
