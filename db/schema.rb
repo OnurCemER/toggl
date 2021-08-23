@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_08_14_231253) do
   create_table "time_records", force: :cascade do |t|
     t.string "comment"
     t.string "time_type"
-    t.time "started_time"
-    t.time "finished_time"
+    t.datetime "started_time"
+    t.datetime "finished_time"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

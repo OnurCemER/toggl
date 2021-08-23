@@ -1,0 +1,16 @@
+%p#notice= notice
+%p
+  %strong Comment:
+  = @time_record.comment
+%p
+  %strong Time type:
+  = @time_record.time_type
+%p
+  %strong Started time:
+  = @time_record.started_time
+%p
+  %strong Finished time:
+  = @time_record.finished_time
+= link_to 'Edit', edit_time_record_path(@time_record)
+|
+= link_to 'Back', time_records_path
