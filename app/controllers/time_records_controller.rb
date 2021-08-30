@@ -56,6 +56,10 @@ class TimeRecordsController < ApplicationController
     end
   end
 
+  def filter
+    @time_record = TimeRecord.where("started_time >= ? and finished_time <= ?", "2021-08-30 10:10:00", "2021-08-30 23:10:00")
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -65,14 +69,6 @@ class TimeRecordsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def time_record_params
-      params.require(:time_record).permit(:comment, :time_type, :started_time, :finished_time)
-    end
-
-    def filterByTimeInterval
-      if params[:started_time] && params[:finished_time]
-        started_time = params[:started_time]
-        finished_time = params[:finished_time]
-        @filteredRecords = TimeRecord.where(started_time: started_time, finished_time: finished_time)
-      end
+      params.require(:time_record).permit(:comment, :time_type, :started_time, :finished_time, :user_id)
     end
 end
