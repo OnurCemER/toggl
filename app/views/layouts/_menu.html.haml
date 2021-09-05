@@ -6,11 +6,11 @@
       .cell.large-4
         %ul{:class=>"menu align-center"}
           %li
-            %a{:href=>"#"} About
+            = link_to "About",  users_path
           %li
-            %a{:href=>"#"} Time Records
+            = link_to "Time Records", time_records_path
           %li
-            %a{:href=>"#"} Report
+            = link_to "Report", filter_path
       .cell.large-4.right-menu
         %a.button.login-button Login
         %a.button.signup-button Signup
