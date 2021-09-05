@@ -7,19 +7,33 @@
 
 .menu {
   li {
-    &:nth-child(odd) {
+    &:nth-child(even) {
       a {
         &:hover {
-          background: #cc4b37;
+          background: #1779ba;
         }
       }
     }
-    &:nth-child(even) {
+    &:nth-child(odd) {
       a {
         &:hover {
           background: #ffae00;
         }
       }
     }
+  }
+}
+
+.app-header {
+  background: #6edbff;
+  min-height: 45px;
+}
+.right-menu {
+  align-items: end;
+  justify-content: end;
+  display: flex;
+  padding: 0.5rem;
+  .login-button, .signup-button {
+    margin: 0 .1rem;
   }
 }
