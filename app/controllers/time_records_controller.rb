@@ -1,5 +1,6 @@
 class TimeRecordsController < ApplicationController
   before_action :set_time_record, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
 
   # GET /time_records or /time_records.json
   def index

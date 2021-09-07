@@ -18,10 +18,9 @@ require("jquery")
 // const imagePath = (name) => images(name, true)
 
 function noticeHide() {
-    const notice = $("#notice");
-    notice.click(function () {
-        notice.hide();
-    });
+    setTimeout(function () {
+        $('#notice').hide();
+    },1200);
 }
 $(function () {
     noticeHide();

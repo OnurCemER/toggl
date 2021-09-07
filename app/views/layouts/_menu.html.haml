@@ -6,15 +6,17 @@
       .cell.large-4
         %ul{:class=>"menu align-center"}
           %li
-            = link_to "About",  new_time_record_path
+            = link_to "New Record",  new_time_record_path
           %li
             = link_to "Time Records", time_records_path
           %li
             = link_to "Report", filter_path
       .cell.large-4.right-menu
-        %a
-          = link_to "Sign In", new_user_session_path, {:class => "button login-button"}
-        %a
-          =link_to "Sign Up", new_user_registration_path, {:class => "button signup-button"}
-        %a
-          =button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button signup-button"
+        - if !user_signed_in? # if user is not signed in -> show 'Sign In' and 'Sign Up' buttons
+          %a
+            = link_to "Sign In", new_user_session_path, {:class => "button login-button"}
+          %a
+            =link_to "Sign Up", new_user_registration_path, {:class => "button signup-button"}
+        - else
+          %a
+            =button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button signup-button"

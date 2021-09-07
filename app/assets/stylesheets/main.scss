@@ -36,5 +36,14 @@
   .login-button, .signup-button {
     margin: 0 .1rem;
     color: #FFFFFF;
+    &:hover {
+      background-color: #23B51F;
+    }
   }
+}
+#notice {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 600;
 }
