@@ -55,3 +55,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "haml-rails", "~> 2.0"
 gem 'foundation-rails'
 gem 'autoprefixer-rails'
+gem 'devise'
+gem 'jquery-rails', '~> 4.4'

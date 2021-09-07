@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :users
+  devise_for :app_users
+  devise_for :users
   resources :time_records
   root 'main#hello'
   get 'filter', to: 'time_records#filter'

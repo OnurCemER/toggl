@@ -6,11 +6,15 @@
       .cell.large-4
         %ul{:class=>"menu align-center"}
           %li
-            = link_to "About",  users_path
+            = link_to "About",  new_time_record_path
           %li
             = link_to "Time Records", time_records_path
           %li
             = link_to "Report", filter_path
       .cell.large-4.right-menu
-        %a.button.login-button Login
-        %a.button.signup-button Signup
+        %a
+          = link_to "Sign In", new_user_session_path, {:class => "button login-button"}
+        %a
+          =link_to "Sign Up", new_user_registration_path, {:class => "button signup-button"}
+        %a
+          =button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button signup-button"
