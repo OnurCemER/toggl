@@ -1,26 +1,29 @@
-= form_with(model: time_record, local: true) do |form|
-  - if time_record.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(time_record.errors.count, "error")
-        prohibited this time_record from being saved:
-      %ul
-        - time_record.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = form.label :comment
-    = form.text_field :comment
-  .field
-    = form.label :time_type
-    = form.text_field :time_type
-  .field
-    = form.label :started_time
-    = form.datetime_select :started_time
-  .field
-    = form.label :finished_time
-    = form.datetime_select :finished_time
-  .field
-    = form.label :user_id
-    = form.text_field :user_id
-  .actions
-    = form.submit
+.cell
+  .grid-x.grid-padding-x.align-center
+    .cell.large-4
+      = form_with(model: time_record, local: true) do |form|
+        - if time_record.errors.any?
+          #error_explanation
+            %h2
+              = pluralize(time_record.errors.count, "error")
+              prohibited this time_record from being saved:
+            %ul
+              - time_record.errors.full_messages.each do |message|
+                %li= message
+        .grid-x
+          .field.large-8
+            = form.label :comment
+            = form.text_field :comment
+          .field.large-4
+            = form.label :time_type
+            = form.text_field :time_type
+        .grid-x
+          .field.large-6
+            = form.label :started_time
+            = form.datetime_select :started_time
+          .field.large-6
+            = form.label :finished_time
+            = form.datetime_select :finished_time
+          %input{:type=>"hidden",:class=>"field", :value => current_user.id}
+          .actions
+            = form.submit
