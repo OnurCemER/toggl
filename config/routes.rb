@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :time_records
   root 'main#hello'
   get 'filter', to: 'time_records#filter'
+  get 'get_by_user', to: 'time_records#show_time_records_by_user'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
