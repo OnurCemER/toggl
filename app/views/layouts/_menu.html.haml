@@ -8,9 +8,13 @@
           %li
             = link_to "New Record",  new_time_record_path
           %li
-            = link_to "Time Records", time_records_path
-          %li
-            = link_to "Report", filter_path
+            = link_to "All Records", time_records_path
+          - if user_signed_in?
+            %li
+              = link_to "My Records", get_by_user_path
+            - if current_user.user_role=="admin"
+              %li
+                = link_to "Report", filter_path
       .cell.large-4.right-menu
         - if !user_signed_in? # if user is not signed in -> show 'Sign In' and 'Sign Up' buttons
           %a
@@ -19,4 +23,8 @@
             =link_to "Sign Up", new_user_registration_path, {:class => "button signup-button"}
         - else
           %a
-            =button_to "Sign Out", destroy_user_session_path, method: :delete, class: "button signup-button"
+            =link_to "Profile", edit_user_registration_path, class: "button signup-button"
+          %a
+            =button_to "Sign Out", destroy_user_session_path , method: :delete, class: "button signup-button"
+
+%p= current_user.inspect

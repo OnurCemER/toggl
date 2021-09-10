@@ -1,7 +1,7 @@
 class TimeRecordsController < ApplicationController
   before_action :set_time_record, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :user_correction, except: [:show, :index, :new, :create, :show_time_records_by_user]
+  before_action :user_correction, except: [:show, :index, :new, :create, :show_time_records_by_user, :filter]
   # GET /time_records or /time_records.json
   def index
     @time_records = TimeRecord.all
@@ -59,7 +59,7 @@ class TimeRecordsController < ApplicationController
   end
 
   def filter
-    @time_record = TimeRecord.where("started_time >= ? and finished_time <= ?", "2021-08-30 10:10:00", "2021-08-30 23:10:00")
+    @time_record = TimeRecord.where("user_id = ? and started_time >= ? and finished_time <= ?", current_user, "2021-08-30 10:10:00", "2021-09-30 23:10:00")
   end
 
   def show_time_records_by_user

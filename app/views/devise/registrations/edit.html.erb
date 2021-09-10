@@ -3,6 +3,24 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
+  <%= current_user.user_role %>
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "firstname" %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "lastname" %>
+  </div>
+  <div class="field">
+    <%= f.label :user_role %><br />
+    <% if current_user.user_role === "admin" %>
+    <%= f.select :user_role, ["user","admin"] %>
+    <% else %>
+    <%= f.select :user_role, ["user","admin"], disabled: ["admin"] %>
+    <% end %>
+  </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
