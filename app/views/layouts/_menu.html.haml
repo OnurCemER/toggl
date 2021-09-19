@@ -2,7 +2,9 @@
   .cell
     .grid-x.grid-padding-x.align-middle
       .cell.large-4
-        %p.text-left LOGO
+        %ul{:class=>"menu"}
+          %li
+            =link_to "Homepage", root_path
       .cell.large-4
         %ul{:class=>"menu align-center"}
           %li
@@ -15,6 +17,8 @@
             - if current_user.user_role=="admin"
               %li
                 = link_to "Report", filter_path
+              %li
+                = link_to "Users", user_get_all_users_path
       .cell.large-4.right-menu
         - if !user_signed_in? # if user is not signed in -> show 'Sign In' and 'Sign Up' buttons
           %a

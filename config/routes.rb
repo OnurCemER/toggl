@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'user/show'
+  get 'user/edit'
+  get 'user/destroy'
+  get 'user/get_all_users'
   devise_for :app_users
   devise_for :users
   resources :time_records
