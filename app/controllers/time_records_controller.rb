@@ -59,7 +59,9 @@ class TimeRecordsController < ApplicationController
   end
 
   def filter
-    @time_record = TimeRecord.where("user_id = ? and started_time >= ? and finished_time <= ?", current_user, "2021-08-30 10:10:00", "2021-09-30 23:10:00")
+    if params[:started_date] != nil
+      @time_record = TimeRecord.where("user_id = ? and started_time >= ? and finished_time <= ?", "#{params[:selected_user]}", "#{params[:started_date]} #{params[:started_time]}", "#{params[:finished_date]} #{params[:finished_time]}")
+    end
   end
 
   def show_time_records_by_user

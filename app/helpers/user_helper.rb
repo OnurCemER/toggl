@@ -9,4 +9,8 @@ module UserHelper
   def get_user_first_name_of_time_record(time_record)
     @get_user = User.where("id = ?", time_record.user_id)
   end
+
+  def get_all_users
+    @all_users = User.all
+  end
 end

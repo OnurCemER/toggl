@@ -1,0 +1,16 @@
+= form_with(model: @time_records, local:true, method: "get" ) do |filter_form|
+  .grid-x.align-center
+    .field.large-4
+      = filter_form.label :Select_User
+      = select_tag :selected_user, options_from_collection_for_select(User.all,"id","first_name")
+  .grid-x.align-center
+    .field.large-2
+      = filter_form.label :started_time
+      = filter_form.date_field :started_date
+      = filter_form.time_field :started_time
+    .field.large-2
+      = filter_form.label :finished_time
+      = filter_form.date_field :finished_date
+      = filter_form.time_field :finished_time
+      .actions
+        = filter_form.submit
