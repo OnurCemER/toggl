@@ -18,14 +18,17 @@
             = form.label :time_type
             = form.text_field :time_type
         .grid-x
-          .field.large-6
+          .field.large-5
             = form.label :started_time
             = form.date_field :started_time, id: "started_date"
-            = form.time_field :started_time, id: "started_time"
-          .field.large-6
+            %div.grid-y
+              %div.field.large-3.time-selection{:id=>"start_time"}= form.time_select :started_time, id: "started_time", :include_seconds=>true, prompt: {hour: 'Hour', minute: 'Minute', second: 'Seconds'}
+          .field.large-2
+          .field.large-5
             = form.label :finished_time
             = form.date_field :finished_time, id: "finished_date"
-            = form.time_field :finished_time, id: "finished_time", :format=>"%H:%M:%S"
+            %div.grid-y
+              %div.field.large-3.time-selection{:id=>"finish_time"}= form.time_select :finished_time, start_year:1900, id: "finished_time", :include_seconds=>true, prompt: {year:'',month:'',day:'', hour: 'Hour', minute: 'Minute', second: 'Seconds'}
           =form.number_field :user_id, :value => current_user.id, :id=> "time_record_user_id",:type=>"hidden",:class=>"field"
           .actions{id:"submit"}
             = form.submit

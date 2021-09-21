@@ -37,10 +37,16 @@ function timeFormat(time) {
     let splittedTime = time.split(":");
     let formattedHour = splittedTime[0] < 10 ? "0" + splittedTime[0] : splittedTime[0];
     let formattedMinute = splittedTime[1];
-    let formattedSecond = splittedTime[2].split(" ");
+    let formattedSecond = splittedTime[2].split(" ")[0];
     return formattedHour + ":" + formattedMinute;
 }
-
+export const formattedTime = (time) => {
+    let splittedTime = time.split(":");
+    let formattedHour = splittedTime[0] < 10 ? "0" + splittedTime[0] : splittedTime[0];
+    let formattedMinute = splittedTime[1];
+    let formattedSecond = splittedTime[2].split(" ")[0];
+    return {formattedHour, formattedMinute, formattedSecond};
+}
 function setTimer(timer, interval, value) {
     let hour = $("#hour").val();
     let minute = $("#minute").val();
@@ -56,7 +62,9 @@ function setTimer(timer, interval, value) {
             $("#stop").removeClass("hide");
             $("#start").addClass("hide");
             $("#started_date").val(dateFormat(date));
-            $("#started_time").val(timeFormat(time));
+            $("#start_time #time_record_started_time_4i option[value="+formattedTime(time).formattedHour+"]").prop('selected',true);
+            $("#start_time #time_record_started_time_5i option[value="+formattedTime(time).formattedMinute+"]").prop('selected',true);
+            $("#start_time #time_record_started_time_6i option[value="+formattedTime(time).formattedSecond+"]").prop('selected',true);
             $("#hour").val(valueParser(parseInt(value / 3600),  10));
             $("#minute").val(valueParser(parseInt(value / 60) % 60, 10));
             $("#second").val(valueParser(++value % 60));
@@ -69,7 +77,9 @@ function setTimer(timer, interval, value) {
         $("#start").removeClass("hide");
         $("#stop").addClass("hide");
         $("#finished_date").val(dateFormat(date));
-        $("#finished_time").val(timeFormat(time));
+        $("#finish_time #time_record_finished_time_4i option[value="+formattedTime(time).formattedHour+"]").prop('selected',true);
+        $("#finish_time #time_record_finished_time_5i option[value="+formattedTime(time).formattedMinute+"]").prop('selected',true);
+        $("#finish_time #time_record_finished_time_6i option[value="+formattedTime(time).formattedSecond+"]").prop('selected',true);
         clearInterval(timer);
         $("#submit").children().click();
         timer = null;
