@@ -1,20 +1,31 @@
-.grid-x.align-center
-  %table.large-3
-    %thead
-      %tr
-        %th{:colspan=>"2"} Hour
-        %th{:colspan=>"2"} Minute
-        %th{:colspan=>"2"} Second
-    %tbody
-      %tr
-        %td
-          %input{:type=>:number, :id=>"hour"}
-        %td :
-        %td
-          %input{:type=>:number, :id=>"minute"}
-        %td :
-        %td
-          %input{:type=>:number, :id=>"second"}
-        %td
-          %input{:type=>:button, :id=>"start", :value=>"Start", :class=>"button"}
-          %input{:type=>:button, :id=>"stop", :value=>"Stop", :class=>"button hide"}
+= form_with(model: time_record, local: true) do |form|
+  .timer
+    .grid-x
+      .field.large-8
+        = form.label :comment
+        = form.text_field :comment
+      .field.large-4
+        = form.label :time_type
+        = form.text_field :time_type
+        = form.hidden_field :started_time, id: "started_time"
+        = form.hidden_field :finished_time, id: "finished_time"
+    .grid-x.align-center
+      %table.large-3
+        %thead
+          %tr
+            %th{:colspan=>"2"} Hour
+            %th{:colspan=>"2"} Minute
+            %th{:colspan=>"2"} Second
+        %tbody
+          %tr
+            %td
+              %input{:type=>:number, :id=>"hour"}
+            %td :
+            %td
+              %input{:type=>:number, :id=>"minute"}
+            %td :
+            %td
+              %input{:type=>:number, :id=>"second"}
+            %td
+              %input{:type=>:button, :id=>"start", :value=>"Start", :class=>"button"}
+              %input{:type=>:button, :id=>"stop", :value=>"Stop", :class=>"button hide", :type=>"submit"}

@@ -38,13 +38,27 @@ function timeFormat(time) {
     let formattedHour = splittedTime[0] < 10 ? "0" + splittedTime[0] : splittedTime[0];
     let formattedMinute = splittedTime[1];
     let formattedSecond = splittedTime[2].split(" ");
-    return formattedHour + ":" + formattedMinute;
+    return formattedHour + ":" + formattedMinute + ":" + formattedSecond[0];
 }
 
 function setTimer(timer, interval, value) {
     let hour = $("#hour").val();
     let minute = $("#minute").val();
     let second = $("#second").val();
+
+    $("#showManuelTimer").click(function (){
+        $(".manuel-timer-form").removeClass("hide");
+        $(".timer").addClass("hide");
+        $("#showTimer").removeClass("hide");
+        $("#showManuelTimer").addClass("hide");
+    });
+
+    $("#showTimer").click(function (){
+        $(".timer").removeClass("hide");
+        $(".manuel-timer-form").addClass("hide");
+        $("#showManuelTimer").removeClass("hide");
+        $("#showTimer").addClass("hide");
+    });
 
     $("#start").click(function () {
         let date = new Date();
@@ -71,7 +85,11 @@ function setTimer(timer, interval, value) {
         $("#finished_date").val(dateFormat(date));
         $("#finished_time").val(timeFormat(time));
         clearInterval(timer);
-        $("#submit").children().click();
+        $("body").on("ajax:complete", () => {
+            $("#hour").val("00");
+            $("#minute").val("00");
+            $("#second").val("00");
+        });
         timer = null;
     });
 }

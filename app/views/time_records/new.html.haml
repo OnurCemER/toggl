@@ -1,4 +1,6 @@
 %h1.text-center New Time Record
-= render 'layouts/timer'
+= render 'layouts/timer', time_record: @time_record
 = render 'form', time_record: @time_record
+%input.button{id: "showManuelTimer", value: "Manuel Time Entry", type:"button"}
+%input.button.hide{id: "showTimer", value: "Show Timer", type:"button"}
 = link_to 'Back', time_records_path, {:class=>"button back-button"}
