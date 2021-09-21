@@ -20,12 +20,12 @@
         .grid-x
           .field.large-6
             = form.label :started_time
-            = form.date_field :started_time
-            = form.time_field :started_time
+            = form.date_field :started_time, id: "started_date"
+            = form.time_field :started_time, id: "started_time"
           .field.large-6
             = form.label :finished_time
-            = form.date_field :finished_time
-            = form.time_field :finished_time
+            = form.date_field :finished_time, id: "finished_date"
+            = form.time_field :finished_time, id: "finished_time", :format=>"%H:%M:%S"
           =form.number_field :user_id, :value => current_user.id, :id=> "time_record_user_id",:type=>"hidden",:class=>"field"
-          .actions
+          .actions{id:"submit"}
             = form.submit

@@ -13,8 +13,8 @@
       %tr
         %td= time_record.comment
         %td= time_record.time_type
-        %td= time_record.started_time.strftime("%H:%M:%S | %d/%m/%Y")
-        %td= time_record.finished_time.strftime("%H:%M:%S | %d/%m/%Y")
+        %td= time_record.started_time.strftime("%H:%M:%S | %d/%m/%Y") if time_record.started_time != nil
+        %td= time_record.finished_time.strftime("%H:%M:%S | %d/%m/%Y") if time_record.finished_time != nil
         %td= time_record.user_id
         %td= link_to 'Show', time_record
         %td= link_to 'Edit', edit_time_record_path(time_record)

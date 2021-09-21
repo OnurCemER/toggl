@@ -2,7 +2,7 @@
   .grid-x.align-center
     .field.large-4
       = filter_form.label :Select_User
-      = select_tag :selected_user, options_from_collection_for_select(User.all,"id","first_name")
+      = select_tag :selected_user, options_from_collection_for_select(get_all_users,"id","first_name", @selected_user_id)
   .grid-x.align-center
     .field.large-2
       = filter_form.label :started_time

@@ -1,3 +1,4 @@
 %h1.text-center New Time Record
+= render 'layouts/timer'
 = render 'form', time_record: @time_record
 = link_to 'Back', time_records_path, {:class=>"button back-button"}

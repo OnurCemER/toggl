@@ -1,0 +1,20 @@
+.grid-x.align-center
+  %table.large-3
+    %thead
+      %tr
+        %th{:colspan=>"2"} Hour
+        %th{:colspan=>"2"} Minute
+        %th{:colspan=>"2"} Second
+    %tbody
+      %tr
+        %td
+          %input{:type=>:number, :id=>"hour"}
+        %td :
+        %td
+          %input{:type=>:number, :id=>"minute"}
+        %td :
+        %td
+          %input{:type=>:number, :id=>"second"}
+        %td
+          %input{:type=>:button, :id=>"start", :value=>"Start", :class=>"button"}
+          %input{:type=>:button, :id=>"stop", :value=>"Stop", :class=>"button hide"}
