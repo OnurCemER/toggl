@@ -53,7 +53,7 @@ class TimeRecordsController < ApplicationController
   def destroy
     @time_record.destroy
     respond_to do |format|
-      format.html { redirect_to time_records_url, notice: "Time record was successfully destroyed." }
+      format.html { redirect_to get_by_user_url, notice: "Time record was successfully destroyed." }
       format.json { head :no_content }
     end
   end
