@@ -16,7 +16,7 @@
             = form.text_field :comment
           .field.large-4
             = form.label :time_type
-            = form.text_field :time_type
+            = select_tag :time_type, options_from_collection_for_select(get_all_categories,"id","category_name", @selected_category_id)
         .grid-x
           .field.large-6
             = form.label :started_time
