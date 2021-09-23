@@ -15,7 +15,7 @@
         %td= time_record.time_type
         %td= time_record.started_time.strftime("%H:%M:%S | %d/%m/%Y") if time_record.started_time != nil
         %td= time_record.finished_time.strftime("%H:%M:%S | %d/%m/%Y") if time_record.finished_time != nil
-        %td= time_diff(time_record)
+        %td= time_duration(time_record)
         %td= link_to 'Show', time_record
         %td= link_to 'Edit', edit_time_record_path(time_record)
         %td= link_to 'Destroy', time_record, method: :delete, data: { confirm: 'Are you sure?' }
