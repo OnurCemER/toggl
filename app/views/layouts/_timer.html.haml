@@ -6,7 +6,7 @@
         = form.text_field :comment
       .field.large-4
         = form.label :time_type
-        = form.text_field :time_type
+        = form.collection_select :time_type, get_all_categories, :name, :name
         = form.hidden_field :started_time, id: "started_time"
         = form.hidden_field :finished_time, id: "finished_time"
     .grid-x.align-center

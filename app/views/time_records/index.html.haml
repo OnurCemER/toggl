@@ -12,8 +12,8 @@
       %tr
         %td= time_record.comment
         %td= time_record.time_type
-        %td= time_record.started_time.strftime("%H:%M:%S | %d/%m/%Y")
-        %td= time_record.finished_time.strftime("%H:%M:%S | %d/%m/%Y")
+        %td= time_record.started_time.strftime("%H:%M:%S | %d/%m/%Y") if time_record.started_time != nil
+        %td= time_record.finished_time.strftime("%H:%M:%S | %d/%m/%Y") if time_record.finished_time != nil
         - get_user_first_name_of_time_record(time_record).each do |user|
           %td= user.first_name
 %br/

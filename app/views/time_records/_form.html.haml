@@ -16,16 +16,17 @@
             = form.text_field :comment
           .field.large-4
             = form.label :time_type
-            = form.text_field :time_type
-        .grid-x
-          .field.large-6
+            = form.collection_select :time_type, get_all_categories, :name, :name
+        .grid-y.time-selection
+          .field.large-5
             = form.label :started_time
-            = form.date_field :started_time, id: "started_date"
-            = form.time_field :started_time, id: "started_time"
-          .field.large-6
+            %span.datetime
+              = form.datetime_select :started_time, id: "started_time"
+          .field.large-2
+          .field.large-5
             = form.label :finished_time
-            = form.date_field :finished_time, id: "finished_date"
-            = form.time_field :finished_time, id: "finished_time", :format=>"%H:%M:%S"
+            %span.datetime
+              = form.datetime_select :finished_time, id: "finished_date"
           =form.number_field :user_id, :value => current_user.id, :id=> "time_record_user_id",:type=>"hidden",:class=>"field"
           .actions{id:"submit"}
             = form.submit
