@@ -16,5 +16,3 @@
         %td= time_record.finished_time.strftime("%H:%M:%S | %d/%m/%Y") if time_record.finished_time != nil
         - get_user_first_name_of_time_record(time_record).each do |user|
           %td= user.first_name
-%br/
-= link_to 'New Time Record', new_time_record_path

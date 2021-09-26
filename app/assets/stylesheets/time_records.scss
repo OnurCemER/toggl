@@ -2,21 +2,106 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
-.button.back-button {
-  background-color: #0C0C0C;
-  min-width: 120px;
-  color: #FFFFFF;
-  &:hover {
-    background-color: #A52A2A;
+
+
+.timer {
+  width: 100%;
+  .text-area {
+    background-color: #316270;
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    div {
+      margin: 0 1rem;
+      text-align: center;
+      label {
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
+  }
+  .time-table-area{
+    background-color: #52a4bd;
+    width: 50%;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    table {
+      margin-top: 1rem;
+    }
   }
 }
 
-.datetime {
-  select {
-    width: 90px;
-    text-indent: 15px;
-    &:nth-child(2) {
-      width: 150px;
+.manuel-timer-form {
+  .time-selection{
+    background-color: #52a4bd;
+    label {
+      color: white;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      margin-top: 5px;
     }
+    .datetime {
+      margin-left: 1rem;
+      select {
+        width: 90px;
+        text-indent: 15px;
+        &:nth-child(2) {
+          width: 150px;
+        }
+      }
+    }
+  }
+  .actions {
+    margin: 0 auto;
+  }
+}
+
+.show-time-record {
+  p {
+    padding: 0 .5rem;
+    font-size: 16px;
+    justify-content: center;
+    margin: 1.5rem auto;
+    strong {
+      font-size: 18px;
+    }
+  }
+  .button {
+    margin: 0 .5rem;
+    color: white;
+    width: 10rem;
+  }
+}
+
+.select-user, .select-category {
+  background-color: #316270;
+  width: 50%;
+  margin: auto;
+  label {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 5px;
+  }
+}
+.select-date-time {
+  background-color: #52a4bd;
+  width: 50%;
+  margin: auto auto 1.5rem auto;
+  .report-button {
+    justify-content: center;
+    display: flex;
+  }
+  label {
+    color: #FFFFFF;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    margin-top: 5px;
   }
 }

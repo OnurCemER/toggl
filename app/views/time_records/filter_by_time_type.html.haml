@@ -1,18 +1,19 @@
 = form_with(model: @time_records, local:true, method: "get" ) do |form|
-  .grid-x.align-center
+  .grid-x.align-center.select-category
     .field.large-4
       = form.label :Select_User
       = form.collection_select :time_type, get_all_categories, :name, :name
-  .grid-x.align-center
-    .field.large-2
+  .grid-x.align-center.select-date-time
+    .field.large-3
       = form.label :started_time
       = form.date_field :started_date
       = form.time_field :started_time
     .field.large-2
+    .field.large-3
       = form.label :finished_time
       = form.date_field :finished_date
       = form.time_field :finished_time
-      .actions
-        = form.submit
+    .field.large-8.report-button
+      %input{:class=>"button", :type=>"submit", :value=>"Get Report"}
 
 = render 'layouts/filtered_records_table'

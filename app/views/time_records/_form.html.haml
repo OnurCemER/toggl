@@ -13,7 +13,7 @@
         .grid-x
           .field.large-8
             = form.label :comment
-            = form.text_field :comment
+            = form.text_field :comment, :placeholder=>"Enter Your Comment"
           .field.large-4
             = form.label :time_type
             = form.collection_select :time_type, get_all_categories, :name, :name
@@ -29,4 +29,4 @@
               = form.datetime_select :finished_time, id: "finished_date"
           =form.number_field :user_id, :value => current_user.id, :id=> "time_record_user_id",:type=>"hidden",:class=>"field"
           .actions{id:"submit"}
-            = form.submit
+            %input{:class=>"button", :type=>"submit", :value=> "Create New Record"}

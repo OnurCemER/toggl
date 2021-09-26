@@ -1,16 +1,16 @@
 = form_with(model: time_record, local: true) do |form|
   .timer
-    .grid-x
-      .field.large-8
+    .grid-x.align-center.text-area
+      .field.large-3
         = form.label :comment
-        = form.text_field :comment
-      .field.large-4
+        = form.text_field :comment, :placeholder=>"Enter Your Comment"
+      .field.large-3
         = form.label :time_type
         = form.collection_select :time_type, get_all_categories, :name, :name
         = form.hidden_field :started_time, id: "started_time"
         = form.hidden_field :finished_time, id: "finished_time"
-    .grid-x.align-center
-      %table.large-3
+    .grid-x.align-center.time-table-area
+      %table.large-5
         %thead
           %tr
             %th{:colspan=>"2"} Hour

@@ -47,3 +47,11 @@
   font-size: 14px;
   font-weight: 600;
 }
+.button.back-button {
+  background-color: #0C0C0C;
+  min-width: 120px;
+  color: #FFFFFF;
+  &:hover {
+    background-color: #A52A2A;
+  }
+}
