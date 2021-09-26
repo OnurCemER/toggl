@@ -10,8 +10,8 @@
             %ul
               - time_record.errors.full_messages.each do |message|
                 %li= message
-        .grid-x
-          .field.large-8
+        .grid-x.text-area
+          .field.large-6
             = form.label :comment
             = form.text_field :comment, :placeholder=>"Enter Your Comment"
           .field.large-4

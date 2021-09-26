@@ -22,7 +22,7 @@
       }
     }
   }
-  .time-table-area{
+  .time-table-area {
     background-color: #52a4bd;
     width: 50%;
     margin: auto;
@@ -57,6 +57,21 @@
   }
   .actions {
     margin: 0 auto;
+  }
+  .text-area {
+    background-color: #316270;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    div {
+      margin: 0 1rem;
+      text-align: center;
+      label {
+        color: white;
+        font-weight: 700;
+        font-size: 16px;
+      }
+    }
   }
 }
 
