@@ -1,7 +1,7 @@
 class TimeRecordsController < ApplicationController
   before_action :set_time_record, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  before_action :user_correction, except: [:show, :index, :new, :create, :show_time_records_by_user, :filter]
+  before_action :user_correction, except: [:show, :index, :new, :create, :show_time_records_by_user, :filter, :report, :filter_by_time_type]
   # GET /time_records or /time_records.json
   def index
     @time_records = TimeRecord.all
@@ -58,10 +58,19 @@ class TimeRecordsController < ApplicationController
     end
   end
 
+  def report
+  end
+
   def filter
     if params[:started_date] != nil
-      @selected_user_id = params[:selected_user]
-      @time_record = TimeRecord.where("user_id = ? and started_time >= ? and finished_time <= ?", @selected_user_id, "#{params[:started_date]} #{params[:started_time]}", "#{params[:finished_date]} #{params[:finished_time]}")
+      selected_user_id = params[:selected_user]
+      @time_record = TimeRecord.where("user_id = ? and started_time >= ? and finished_time <= ?", selected_user_id, "#{params[:started_date]} #{params[:started_time]}", "#{params[:finished_date]} #{params[:finished_time]}")
+    end
+  end
+
+  def filter_by_time_type
+    if params[:started_date] != nil
+      @time_record = TimeRecord.where("time_type = ? and started_time >= ? and finished_time <= ?", "#{params[:time_type]}", "#{params[:started_date]} #{params[:started_time]}", "#{params[:finished_date]} #{params[:finished_time]}")
     end
   end
 

@@ -1,17 +1,3 @@
 %h3{:style=>"text-align:center;"} Report
 = render 'filter_form'
-%table
-	%thead
-		%tr
-			%th Comment
-			%th Time type
-			%th Started time
-			%th Finished time
-	%tbody
-		- if @time_record != nil
-			- @time_record.each do |time|
-				%tr
-					%td= time.comment
-					%td= time.time_type
-					%td= time.started_time
-					%td= time.finished_time
+= render 'layouts/filtered_records_table'

@@ -1,0 +1,20 @@
+%table
+  %thead
+    %tr
+      %th Comment
+      %th Time type
+      %th Started time
+      %th Finished time
+      %th Time Duration
+      %th User
+  %tbody
+    - if @time_record != nil
+      - @time_record.each do |time|
+        %tr
+          %td= time.comment
+          %td= time.time_type
+          %td= time.started_time
+          %td= time.finished_time
+          %td= time_duration(time)
+          - get_user_first_name_of_time_record(time).each do |user|
+            %td= user.first_name
