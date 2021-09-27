@@ -1,24 +1,34 @@
-# README
+# TOGGL CLONE README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is simple various of toggl. 
 
-Things you may want to cover:
+# Features
+## Admin
+Admins can;
+* Generate report weekly, monthly or between spesific dates.
+* Show all users and destroy another user
+* Add or remove category 
+## User
+Users can;
+* login and singup
+* show, update and destroy their records
+* just show all records
+* add new records
+## Time Records
+Time Records has;
+* One user can control many time records
+* Time records can have different categories
+* Records can be recorded manually or cron.
 
-* Ruby version
+# Usages
+* Ruby 2.7.0
+* Ruby on Rails 6.x
+* JQuery
+* PostgreSQL
+* Zurb Foundation
+* HAML
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Run
+First of all clone this repo. After than locate project directory.
+- `bundle install` for gemfile dependencies
+- For run -> You can use this commands `rails server` or `rails s` on terminal
