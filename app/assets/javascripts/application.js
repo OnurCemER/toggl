@@ -23,9 +23,9 @@ function timeFormat(time) {
     let formattedMinute = splittedTime[1];
     let formattedSecond = splittedTime[2].split(" ");
     if(formattedSecond[1] == "PM"){
-        formattedHour = (formattedHour + 12) % 24;
+        formattedHour = (parseInt(formattedHour) + 12) % 24;
     }else {
-        formattedHour = formattedHour % 24 === 12 ? "00" : formattedHour;
+        formattedHour = parseInt(formattedHour) % 24 === 12 ? "00" : formattedHour;
     }
     return formattedHour + ":" + formattedMinute + ":" + formattedSecond[0];
 }
