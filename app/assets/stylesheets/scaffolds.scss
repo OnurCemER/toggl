@@ -71,3 +71,17 @@ div.actions {
 
 label {
   display: block; }
+
+.cancel-account {
+  background-color: #b5201e;
+  color: #FFFFFF;
+  width: 50%;
+  margin: 0 auto;
+  .button {
+    background-color: white;
+    color: black;
+    &:hover {
+      background-color: gray;
+    }
+  }
+}

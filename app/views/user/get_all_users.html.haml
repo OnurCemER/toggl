@@ -14,5 +14,5 @@
         %td= user.user_role
         %td= user.email
         %td= link_to 'Show', user_show_path
-        %td= link_to 'Edit', user_edit_path
-        %td= link_to 'Destroy', user_destroy_path
+        %td= link_to 'Edit',  user_edit_path
+        %td= link_to 'Destroy', user_path(id: user.id), method: :delete, data: { confirm: 'Are you sure?' }

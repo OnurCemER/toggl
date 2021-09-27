@@ -35,6 +35,10 @@ function setTimer(timer, interval, value) {
     let minute = $("#minute").val();
     let second = $("#second").val();
 
+    if(!$("h1").text().includes("Edit")){
+        $(".manuel-timer-form").addClass("hide");
+    }
+
     $("#showManuelTimer").click(function (){
         $(".manuel-timer-form").removeClass("hide");
         $(".timer").addClass("hide");

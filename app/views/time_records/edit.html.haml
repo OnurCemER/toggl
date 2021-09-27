@@ -1,5 +1,4 @@
 %h1 Editing Time Record
 = render 'form', time_record: @time_record
-= link_to 'Show', @time_record
-|
-= link_to 'Back', time_records_path
+= link_to 'Show', @time_record, :class=>"button primary"
+= link_to 'Back', time_records_path, :class=>"button back-button"
