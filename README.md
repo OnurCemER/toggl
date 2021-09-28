@@ -22,7 +22,7 @@ Time Records has;
 
 # Usages
 * Ruby 2.7.0
-* Ruby on Rails 6.x
+* Ruby on Rails 6.0.4
 * JQuery
 * PostgreSQL
 * Zurb Foundation
