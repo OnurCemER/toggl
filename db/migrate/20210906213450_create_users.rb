@@ -1,6 +1,9 @@
 class AddDeviseToUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t| # => changed 'change_' to 'create_'
+      t.string :first_name
+      t.string :last_name
+      t.string :user_role
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
