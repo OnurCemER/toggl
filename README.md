@@ -31,4 +31,8 @@ Time Records has;
 # Run
 First of all clone this repo. After than locate project directory.
 - `bundle install` for gemfile dependencies
+- `rails db:migrate` or `rails db:schema:load` for database migrations
 - For run -> You can use this commands `rails server` or `rails s` on terminal
+
+# Production
+This app is running with heroku on this url : https://togglclone.herokuapp.com/
