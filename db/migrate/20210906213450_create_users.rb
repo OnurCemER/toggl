@@ -1,4 +1,4 @@
-class AddDeviseToUsers < ActiveRecord::Migration[6.0]
+class CreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t| # => changed 'change_' to 'create_'
       t.string :first_name
