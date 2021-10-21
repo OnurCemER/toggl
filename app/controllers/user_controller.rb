@@ -19,7 +19,7 @@ class UserController < ApplicationController
     end
   end
 
-  def get_all_users
+  def index
     @users = User.all
   end
 

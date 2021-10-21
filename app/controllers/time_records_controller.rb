@@ -64,25 +64,22 @@ class TimeRecordsController < ApplicationController
   def filter
     if params[:started_date] != nil
       selected_user_id = params[:selected_user]
-      @time_record = TimeRecord.where("user_id = ? and started_time >= ? and finished_time <= ?", selected_user_id, "#{params[:started_date]} #{params[:started_time]}", "#{params[:finished_date]} #{params[:finished_time]}")
+      @filtered_records = TimeRecord.where("user_id = ?", selected_user_id)
+      @filtered_records = TimeRecord.where("started_time >= ? ", "#{params[:started_date]} #{params[:started_time]}")
+      @filtered_records = TimeRecord.where("finished_time <= ?", "#{params[:finished_date]} #{params[:finished_time]}")
     end
   end
 
   def filter_by_time_type
     if params[:started_date] != nil
-      @time_record = TimeRecord.where("time_type = ? and started_time >= ? and finished_time <= ?", "#{params[:time_type]}", "#{params[:started_date]} #{params[:started_time]}", "#{params[:finished_date]} #{params[:finished_time]}")
+      @filtered_records = TimeRecord.where("time_type = ?", "#{params[:time_type]}")
+      @filtered_records = TimeRecord.where("started_time >= ?", "#{params[:started_date]} #{params[:started_time]}")
+      @filtered_records = TimeRecord.where("finished_time <= ?", "#{params[:finished_date]} #{params[:finished_time]}")
     end
   end
 
   def show_time_records_by_user
-    @time_records = TimeRecord.where("user_id = ?", current_user.id)
-  end
-
-  def user_correction
-    @time_record = current_user.time_record.find_by(id: params[:id])
-    if @time_record == nil
-      redirect_to time_records_path, alert: "Credentials Not Allowed!"
-    end
+    @records_by_user = TimeRecord.where("user_id = ?", current_user.id)
   end
 
   private
@@ -94,5 +91,12 @@ class TimeRecordsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def time_record_params
       params.require(:time_record).permit(:comment, :time_type, :started_time, :finished_time, :user_id)
+    end
+
+    def user_correction
+      time_record = current_user.time_record.find_by(id: params[:id])
+      if time_record == nil
+        redirect_to time_records_path, alert: "Credentials Not Allowed!"
+      end
     end
 end

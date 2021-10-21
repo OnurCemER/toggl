@@ -9,7 +9,7 @@
       %th Time Duration
       %th{:colspan => "3"}
   %tbody
-    - @time_records.each do |time_record|
+    - @records_by_user.each do |time_record|
       %tr
         %td= time_record.comment
         %td= time_record.time_type

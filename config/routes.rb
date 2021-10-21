@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :categories
   get 'user/show'
   get 'user/edit'
-  get 'user/get_all_users'
+  get 'user/index'
   get 'user', to:"user#show"
   delete 'user', to:"user#destroy"
   devise_for :app_users

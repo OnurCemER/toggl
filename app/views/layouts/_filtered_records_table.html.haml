@@ -8,8 +8,8 @@
       %th Time Duration
       %th User
   %tbody
-    - if @time_record != nil
-      - @time_record.each do |time|
+    - if @filtered_records != nil
+      - @filtered_records.each do |time|
         %tr
           %td= time.comment
           %td= time.time_type
